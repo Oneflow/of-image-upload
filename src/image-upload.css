@@ -1,0 +1,17 @@
+.image-list {
+    margin: 0;
+    padding: 0;
+    clear: both;
+
+    li {
+        list-style-type: none;
+        float: left;
+        margin-right: 5px;
+    }
+
+    img {
+        min-height: 30px;
+        max-height: 63px;
+        clip-path: inset(5% 5% 5% 5% round 10%);
+    }
+}

@@ -1,19 +1,28 @@
 angular.module('oneflow.image-upload', [])
-    .provider('ofImageUploadSettings', function () {
-      this.config = {};
+    .provider('ofImageUploadSettings', function() {
+        this.config = {
+          url: '/api/file/getpreupload',
+          preuploadConfig: {},
+          putConfig: {},
+          preupload: function (data) {
+            console.log("default", data);
+          }
+        };
 
-      this.$get = function () {
-        var config = this.config;
-        return {
-          url: function () {
-            return config.url || '/api/file/getpreupload';
+        this.events = {
+          'preupload' : function (data) {
+            console.log("default", data);
           }
         }
-      };
 
-      this.setUrl = function (url) {
-        this.config.url = url;
-      }
+        this.$get = function() {
+            console.log(this.config);
+            return this.config;
+        };
+
+        this.configure = function(config) {
+            this.config = _.assign(this.config, config);
+        }
     })
     .directive('ofImageUpload', function($compile, $http, ofImageUploadSettings) {
         return {
@@ -82,7 +91,7 @@ angular.module('oneflow.image-upload', [])
 
                     var imageIndex = $scope.ngModel.length;
 
-                    var url = ofImageUploadSettings.url();
+                    var url = ofImageUploadSettings.url;
 
                     /*
                       1. get an upload URL from the API
@@ -90,16 +99,26 @@ angular.module('oneflow.image-upload', [])
                       3. save the long expiry download URL to the product.images
                     */
 
+                    ofImageUploadSettings.preupload.call('preupload', this);
+
+
+
+                    var getConfig = ofImageUploadSettings.preuploadConfig;
+                    var putConfig = ofImageUploadSettings.putConfig;
+
+                    _.defaults(getConfig, {
+                        params: {
+                            mimeType: fileType
+                        }
+                    });
+
                     $http
-                        .get(url, {
-                            params: {
-                                mimeType: fileType
-                            }
-                        })
+                        .get(url, getConfig)
                         .success(function(results) {
                             $http.put(results.upload, $scope.selectedImage.file, {
                                 withCredentials: false,
                                 headers: {
+                                    'Authorization': undefined,
                                     'Content-Type': fileType
                                 }
                             }).success(function(response) {
