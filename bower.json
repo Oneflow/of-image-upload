@@ -5,11 +5,11 @@
     "Jack Gardner <jack.gardner@oneflowsystems.com>"
   ],
   "description": "Oneflow Image Upload",
-  "main": "dist/image-upload.js",
+  "main": "image-upload.js",
   "license": "MIT",
   "dependencies": {
-    "angular": "~1.0.0"
-  },
+    "angular": "~1.3.4"
+  }
   "ignore": [
     "**/.*",
     "node_modules",
