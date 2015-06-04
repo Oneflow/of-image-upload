@@ -1,0 +1,20 @@
+{
+  "name": "of-image-upload",
+  "version": "0.0.1",
+  "authors": [
+    "Jack Gardner <jack.gardner@oneflowsystems.com>"
+  ],
+  "description": "Oneflow Image Upload",
+  "main": "dist/image-upload.js",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.0.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
