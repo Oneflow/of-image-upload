@@ -1,5 +1,21 @@
 angular.module('oneflow.image-upload', [])
-    .directive('ofImageUpload', function($compile, $http) {
+    .provider('ofImageUploadSettings', function () {
+      this.config = {};
+
+      this.$get = function () {
+        var config = this.config;
+        return {
+          url: function () {
+            return config.url || '/api/file/getpreupload';
+          }
+        }
+      };
+
+      this.setUrl = function (url) {
+        this.config.url = url;
+      }
+    })
+    .directive('ofImageUpload', function($compile, $http, ofImageUploadSettings) {
         return {
             restrict: 'E',
             scope: {
@@ -41,7 +57,7 @@ angular.module('oneflow.image-upload', [])
                             $scope.selectedImage = {
                                 data: e.target.result,
                                 file: aImg.file
-                                    // filename:  
+                                    // filename:
                             }
 
 
@@ -66,7 +82,7 @@ angular.module('oneflow.image-upload', [])
 
                     var imageIndex = $scope.ngModel.length;
 
-                    var url = "/api/file/getpreupload";
+                    var url = ofImageUploadSettings.url();
 
                     /*
                       1. get an upload URL from the API
