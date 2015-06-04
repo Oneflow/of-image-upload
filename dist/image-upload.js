@@ -29,12 +29,14 @@ angular.module('oneflow.image-upload', [])
             restrict: 'E',
             scope: {
                 ngModel: '=',
-                model: '=',
-                type: '='
+                model: '='
             },
             replace: true,
             templateUrl: 'templates/image-upload.html',
             controller: function($scope, $attrs, $element) {
+
+
+                $scope.type = $attrs.type;
 
                 $scope.removeImage = function(index) {
                     $scope.ngModel.splice(index, 1);
@@ -165,7 +167,7 @@ angular.module('oneflow.image-upload').run(['$templateCache', function($template
     "\n" +
     "  </div>\r" +
     "\n" +
-    "  <button class=\"m-t btn btn-success\" translate=\"Add Image to {{type}}\" ng-click=\"addProductImage();$event.preventDefault()\"></button>\r" +
+    "  <button class=\"m-t btn btn-success\" translate=\"Add Image to {{type}}\" ng-click=\"addProductImage();$event.preventDefault()\">Add Image to {{type}}</button>\r" +
     "\n" +
     "</div>\r" +
     "\n"

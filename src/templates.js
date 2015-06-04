@@ -24,7 +24,7 @@ angular.module('oneflow.image-upload').run(['$templateCache', function($template
     "\n" +
     "  </div>\r" +
     "\n" +
-    "  <button class=\"m-t btn btn-success\" translate=\"Add Image to {{type}}\" ng-click=\"addProductImage();$event.preventDefault()\"></button>\r" +
+    "  <button class=\"m-t btn btn-success\" translate=\"Add Image to {{type}}\" ng-click=\"addProductImage();$event.preventDefault()\">Add Image to {{type}}</button>\r" +
     "\n" +
     "</div>\r" +
     "\n"

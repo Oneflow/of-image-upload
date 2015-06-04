@@ -29,12 +29,14 @@ angular.module('oneflow.image-upload', [])
             restrict: 'E',
             scope: {
                 ngModel: '=',
-                model: '=',
-                type: '='
+                model: '='
             },
             replace: true,
             templateUrl: 'templates/image-upload.html',
             controller: function($scope, $attrs, $element) {
+
+
+                $scope.type = $attrs.type;
 
                 $scope.removeImage = function(index) {
                     $scope.ngModel.splice(index, 1);
