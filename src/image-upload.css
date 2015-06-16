@@ -6,35 +6,36 @@
         list-style-type: none;
         float: left;
         margin-right: 5px;
-    }
-    img {
-        min-height: 30px;
-        max-height: 63px;
-        clip-path: inset(5% 5% 5% 5% round 10%);
-    }
+        position: relative;
 
-    &:hover {
-        span.text-content {
-            opacity: 1;
+        img {
+            min-height: 30px;
+            max-height: 63px;
+            clip-path: inset(5% 5% 5% 5% round 10%);
         }
-    }
 
-    span.text-content {
-        background: rgba(0,0,0,0.5);
-        cursor:pointer;
-        display:table;
-        position:absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        color: white;
-        opacity: 0;
-        transition: opacity 500ms;
-        
-        span {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
+        &:hover {
+            span.image-text {
+                opacity: 1;
+            }
+        }
+        span.image-text {
+            background: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            display: table;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            opacity: 0;
+            transition: opacity 500ms;
+            span {
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+
+                padding: 1px;
+            }
         }
     }
 }
