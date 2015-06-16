@@ -1,0 +1,31 @@
+{
+  "name": "of-image-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": [
+    "dist/image-upload.css",
+    "dist/image-upload.js"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "autoprefixer-core": "^5.2.0",
+    "cssnext": "^1.6.0",
+    "grunt-angular-templates": "^0.5.7",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-postcss": "^0.5.1",
+    "postcss-nested": "^0.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oneflow/of-image-upload.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oneflow/of-image-upload/issues"
+  },
+  "homepage": "https://github.com/oneflow/of-image-upload#readme"
+}

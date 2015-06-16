@@ -1,7 +1,8 @@
 <div>
   <ul class="image-list">
     <li ng-repeat="image in ngModel">
-      <img ng-click="removeImage($index)" ng-src="{{image}}" />
+      <img  ng-src="{{image}}" class="image-upload" />
+      <span ng-click="removeImage($index)" class="image-text"><span>Remove</span></span>
     </li>
   </ul>
   <div class="clearfix m-b"></div>
